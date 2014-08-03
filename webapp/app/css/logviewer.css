@@ -1,6 +1,4 @@
 body {
-    padding: 20px;
-    padding-top: 284px;
     white-space: nowrap;
     float: left;
 }
@@ -24,18 +22,16 @@ body {
 .lv-log-container {
     height: auto;
     width: 100%;
-    position: absolute;
     overflow: auto;
     right: 0px;
-    top: 284px;
     left: 0px;
     bottom: 0px;
-    padding: 20px;
+    padding: 20px 20px 0px;
     background: #EFEFEF;
 }
 
 .lv-log-line {
-    width: auto;
+    width: 100%;
 }
 
 .lv-line-number {
@@ -56,14 +52,12 @@ body {
 }
 
 .run-data {
-    height: 284px;
     width: 100%;
     position: fixed;
     top: 0px;
     left: 0px;
     background-color: #FFF;
-    padding: 20px;
-    border-bottom: 1px solid #EFEFEF;
+    padding: 20px 5px 4px;
 }
 
 .run-data .steps-data {

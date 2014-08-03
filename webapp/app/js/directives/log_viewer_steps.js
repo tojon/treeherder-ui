@@ -21,16 +21,21 @@ treeherder.directive('lvLogSteps', ['$timeout', '$parse', function ($timeout) {
 
                 scope.loadMore({}).then(function () {
                     $timeout(function () {
-                        var raw = $('.lv-log-container')[0];
                         var line = $('.lv-log-line[line="' + linenumber + '"]');
-                        raw.scrollTop += line.offset().top - $('.run-data').outerHeight(); 
+
+                            // Animate to successfully scroll to the selected error
+                            if (line.offset() !== undefined) {
+                                $('html, body').animate({
+                                    scrollTop: line.offset().top - $('.run-data').outerHeight()
+                                }, 200);
+                            }
                     });
                 });
 
                 if (scope.displayedStep && scope.displayedStep.order === step.order) {
                     $event.stopPropagation();
                 }
-            }; 
+            };
 
             scope.toggleSuccessfulSteps = function() {
                 scope.showSuccessful = !scope.showSuccessful;
@@ -55,9 +60,14 @@ treeherder.directive('lvLogSteps', ['$timeout', '$parse', function ($timeout) {
 
                 scope.loadMore({}).then(function () {
                     $timeout(function () {
-                        var raw = $('.lv-log-container')[0];
                         var line = $('.lv-log-line[line="' + step.started_linenumber + '"]');
-                        raw.scrollTop += line.offset().top - $('.run-data').outerHeight(); 
+
+                        if (line.offset() !== undefined) {
+                            // Animate to successfully scroll to the selected error
+                            $('html, body').animate({
+                                scrollTop: line.offset().top - $('.run-data').outerHeight()
+                            }, 200);
+                        }
                     });
                 });
             };
