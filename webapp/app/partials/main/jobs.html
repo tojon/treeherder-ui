@@ -48,16 +48,30 @@
     <div th-clone-jobs ></div>
 </div>
 
-<div ng-show="result_sets.length == 0 && !isLoadingRsBatch.appending && !isLoadingJobs && locationHasSearchParam('revision')">
-  <span>
+<!-- need this inside ResultSetCtrl for access to revision -->
+<!-- <div ng-show="1"> -->
+<div ng-show="result_sets.length == 0 && !isLoadingRsBatch.appending && !isLoadingJobs &&
+              locationHasSearchParam('revision')"
+              class="result-set">
+  <span ng-init="rev=getSearchParamValue('revision')">
     <div><b>Unknown revision ID.</b></div>
-    <span>This could be because your push has not been processed yet, or the revision ID could be invalid.
-      This page will refresh occasionally, so your push should show up within a few minutes if it does exist.</span>
+    <span>Waiting for a result set matching revision</span>
+      <a href="{{currentRepo.url}}/pushloghtml?changeset={{rev}}"
+         target="_blank"
+         title="open revision {{revision}} on {{currentRepo.url}}"
+         >{{rev}}</a>
+    <span class="fa fa-refresh fa-spin"></span>
+    <div>Your push has either not been processed yet or the revision is invalid.
+      This page will refresh automatically, and your jobs will show up within
+      a few minutes of the push if it exists.
+    </div>
   </span>
 </div>
 
 <div ng-show="result_sets.length == 0 && !isLoadingRsBatch.appending && !isLoadingJobs &&
-     !locationHasSearchParam('revision') && !locationHasSearchParam('repo') && currentRepo.url">
+              !locationHasSearchParam('revision') && !locationHasSearchParam('repo') &&
+              currentRepo.url"
+              class="result-set">
   <span>
     <div><b>No resultsets found.</b></div>
     <span>No commit information could be loaded for this repository.
@@ -66,7 +80,9 @@
 </div>
 
 <div ng-show="result_sets.length == 0 && !isLoadingRsBatch.appending && !isLoadingJobs &&
-     !locationHasSearchParam('revision') && locationHasSearchParam('repo') && !currentRepo.url">
+              !locationHasSearchParam('revision') && locationHasSearchParam('repo') &&
+              !currentRepo.url"
+              class="result-set">
   <span>
     <div><b>Unknown repository.</b></div>
     <span>This repository is either unknown to Treeherder or it doesn't exist.
