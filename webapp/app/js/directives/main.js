@@ -28,11 +28,17 @@ treeherder.directive('focusMe', [
   return {
     link: function(scope, element, attrs) {
       scope.$watch(attrs.focusMe, function(value) {
-        if(value === true) {
+        if (value === true) {
           $timeout(function() {
             element[0].focus();
-            scope[attrs.focusMe] = false;
+            console.log("focusMeDirective" + " " + scope[attrs.focusMe]);
+            console.log("----------------------------------------------");
           }, 0);
+        } else if (value === false) {
+        console.log("focusMeDirective" + " " + scope[attrs.focusMe]);
+        console.log("----------------------------------------------");
+        element[0].blur();
+        // scope[attrs.focusMe] = false;
         }
       });
     }

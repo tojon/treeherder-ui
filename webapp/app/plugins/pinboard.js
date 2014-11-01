@@ -84,7 +84,9 @@ treeherder.controller('PinboardCtrl', [
 
         $scope.toggleEnterBugNumber = function() {
             $scope.enteringBugNumber = !$scope.enteringBugNumber;
+            console.log("enteringBugNumber" + " " + $scope.enteringBugNumber);
             $scope.focusInput = $scope.enteringBugNumber;
+            console.log("focusInput" + " " + $scope.focusInput);
         };
 
         $scope.saveEnteredBugNumber = function() {
