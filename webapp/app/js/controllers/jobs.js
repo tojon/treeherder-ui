@@ -243,7 +243,12 @@ treeherder.controller('ResultSetCtrl', [
         };
 
         $scope.revisionResultsetFilterUrl = $scope.urlBasePath + "?repo=" + $scope.repoName + "&revision=" + $scope.resultset.revision;
-        $scope.resultsetDateStr = dateFilter($scope.resultset.push_timestamp*1000, 'medium');
+        $scope.resultsetDateStr = dateFilter($scope.resultset.push_timestamp*1000, 'EEE MMM d, H:mm:ss');
+        $scope.resultsetDateStrNow = moment(dateFilter($scope.resultset.push_timestamp*1000, 'yyyy MM dd'), "YYYY MM DD").fromNow();
+        // working tests below
+        // console.log(moment(dateFilter($scope.resultset.push_timestamp*1000, 'yyyy MM dd'), "YYYY MM DD").fromNow());
+        // console.log(moment("2014 11 04", "YYYY MM DD").fromNow());
+
         $scope.authorResultsetFilterUrl = $scope.urlBasePath + "?repo=" + $scope.repoName + "&author=" + encodeURIComponent($scope.resultset.author);
 
         $scope.resultStatusFilters = thJobFilters.copyResultStatusFilters();

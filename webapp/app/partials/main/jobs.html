@@ -16,7 +16,9 @@
             <a href="{{revisionResultsetFilterUrl}}"
                title="open this resultset in new tab"
                target="_blank"
-               ng-bind="resultsetDateStr"></a> - </span>
+               ng-bind="resultsetDateStr"></a>
+            <span class="revision-comment"> ({{resultsetDateStrNow}}) </span>
+          </span>
           <th-author author="{{resultset.author}}"></th-author>
         </span>
       </span>
