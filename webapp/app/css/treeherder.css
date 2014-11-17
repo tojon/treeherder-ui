@@ -1068,6 +1068,54 @@ ul.failure-summary-list li .btn-xs {
    padding-right: 18px !important;
 }
 
+/* Job reveal transition */
+@-webkit-keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@-moz-keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.preload {
+    -webkit-animation: none !important;
+    -moz-animation: none !important;
+    animation: none !important;
+}
+
+.filter-shown {
+    /* start opacity */
+    opacity: 0;
+
+    /* repeat fadeIn transition with an ease-in behavior, only once */
+    -webkit-animation: fadeIn ease-in 1;
+    -moz-animation: fadeIn ease-in 1;
+    animation: fadeIn ease-in 1;
+
+    /* after, remain at the final key frame value */
+    -webkit-animation-fill-mode: forwards;
+    -moz-animation-fill-mode:forwards;
+    animation-fill-mode:forwards;
+
+    /* set the transition duration */
+    -webkit-animation-duration: 0.85s;
+    -moz-animation-duration: 0.85;
+    animation-duration: 0.85s;
+
+    /* allow us to recognize the new job openings before transition */
+    -webkit-animation-delay: 0.2s;
+    -moz-animation-delay: 0.2s;
+    animation-delay: 0.2s;
+}
+/* End of Job reveal transition */
+
  .job-btn.btn-dkgray,
  .job-btn.btn-ltgray,
  .job-btn.btn-green,
