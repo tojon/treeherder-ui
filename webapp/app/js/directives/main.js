@@ -88,6 +88,7 @@ treeherder.directive('copyValue', [
                 var cont = document.getElementById('clipboard-container'),
                     clip = document.getElementById('clipboard');
                 element.on('mouseenter', function() {
+                    console.log("hit");
                     cont.style.display = 'block';
                     clip.value = attrs.copyValue;
                     clip.focus();
