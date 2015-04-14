@@ -1912,18 +1912,55 @@ div.similar_jobs .left_panel table tr.active > td {
 /* Avoid using the hand pointer unless we are on a link */
 div.similar_jobs .left_panel table tr { cursor: default; }
 
-#notification_box{
-    position:fixed;
-    top:70px;
-    right:10px;
+#notification_box {
+    position: fixed;
+    top: -24px;
+    left: 140px;
     z-index: 1100;
 }
 
-#notification_box div.alert{
+#notification_box div.alert {
+    padding: 8px 16px 8px 8px;
     margin-bottom:5px;
+    border-radius: 0;
+    -webkit-transition: 0.5s ease-out;
+    -moz-transition: 0.5s ease-out;
+    transition: 0.5s ease-out;
 }
 
-#notification_box button.close{position:relative; top:-2px; right:-8px; color:inherit}
+#notification_box div.alert:hover {
+    -webkit-transform: translateY(34px);
+    -moz-transform: translateY(34px);
+    transform: translateY(34px);
+}
+
+#notification_box button.close {
+    position:relative;
+    top:-4px;
+    right:-8px;
+    color:inherit
+}
+/*
+#notification_box {
+    position: fixed;
+    top: 0;
+    left: 140px;
+    z-index: 1100;
+}
+
+#notification_box div.alert {
+    padding: 8px 16px 8px 8px;
+    margin-bottom:5px;
+    border-radius: 0;
+}
+
+#notification_box button.close {
+    position:relative;
+    top:-4px;
+    right:-8px;
+    color:inherit
+}
+*/
 
 .add-new-filter .form-group{
     margin-bottom: 5px;
